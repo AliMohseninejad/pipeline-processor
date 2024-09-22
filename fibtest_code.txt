@@ -1,0 +1,31 @@
+addi $t0,$zero,1
+add $t1,$zero,$t0
+addi $s2,$zero,64
+
+sw $t0,0($s2)
+addi $s2,$s2,4
+sw $t1,0($s2)
+
+addi $s0,$zero,3
+loop:
+slti $s1,$s0,16
+beq $s1,$zero,finish
+add $t0,$t0,$t1
+
+addi $s2,$s2,4
+sw $t0,0($s2)
+
+add $t2,$zero,$t1
+add $t1,$zero,$t0
+add $t0,$zero,$t2
+
+addi $s0,$s0,1
+beq $zero,$zero,loop
+add $zero,$zero,$zero
+add $zero,$zero,$zero
+add $zero,$zero,$zero
+add $zero,$zero,$zero
+add $zero,$zero,$zero
+finish:
+beq $zero,$zero,finish
+
